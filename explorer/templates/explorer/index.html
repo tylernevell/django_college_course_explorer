@@ -1,0 +1,12 @@
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+
+{% if department_list %}
+    <ul>
+    {% for department in department_list %}
+        <li><a href="{% url 'explorer:Course List' department.id %}">{{ department.department_name }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No departments at this school! Ridiculous!</p>
+{% endif %}

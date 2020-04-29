@@ -1,0 +1,20 @@
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+
+<h1>{{ instructor.instructor_name }}</h1>
+<h4>{{ instructor.instructor_name }} teaches the following courses:</h4>
+
+{% if instructor.course_set.all %}
+    <ul>
+    {% for course in instructor.course_set.all %}
+        <li><a href="{% url 'explorer:Course View' course.id %}">{{ course.course_name }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No courses in this school! Ridiculous!</p>
+{% endif %}
+
+{% if error_message %}
+    <p><strong>{{ error_message }}</strong></p>
+{% endif %}
+

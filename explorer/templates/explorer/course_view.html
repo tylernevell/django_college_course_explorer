@@ -1,0 +1,11 @@
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+
+<h1>{{ course.course_name }}</h1>
+
+{% if error_message %}
+    <p><strong>{{ error_message }}</strong></p>
+{% endif %}
+
+<h3>Taught by <a href="{% url 'explorer:Instructor' course.taught_by.id %}">{{ course.taught_by.instructor_name }}</a></h3>
+<!-- LAST LEFT OFF TRYING TO ITERATE THROUGH THE TAUGHT_BY OBJECT TO DISPLAY A LINK TO INSTRUCTOR NAME -->
